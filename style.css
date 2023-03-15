@@ -1,23 +1,95 @@
 * {
-    box-sizing: border-box;
-    outline:solid red;
-}
-
-body {
+    padding: 0;
     margin: 0;
-    line-height: 1.5;
-    height: 100vh;
-    width: 100vw;
-    background: linear-gradient(0deg, white, #af654e);
-    background-size: 200% 200%;
-    background-repeat: repeat;
-
+    box-sizing: border-box;
 }
+
+/**************************************************/
+/* SCREEN */
+
+
+.screen {
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    height: 10rem;
+    width: 70%;
+    margin-left: 5rem;
+    margin-top: 30px;
+    box-shadow: inset 4px 4px 10px 4px rgba(0, 0, 0, 0.25);
+}
+
+.screen h1 {
+    font-size: medium;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    height: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* overflow: auto */
+    /* white-space: pre-line; */
+}
+
+.container-timer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.screen .timer-bar {
+    width: 80%;
+    height: 30%;
+    margin-left: 1%;
+    border: solid 1px black;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 0px grey;
+}
+
+.screen .screen-score {
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    flex-direction: row;
+}
+
+
+@media screen and (width < 480px) {
+
+    .screen h1 {
+        font-size: small;
+    }
+
+    .screen-score {
+        font-size: small;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .container-timer {
+        display: block;
+    }
+
+    .screen {
+        position: relative;
+    }
+
+    .screen .timer-bar {
+        width: 95%;
+        height: 10px;
+        ;
+    }
+}
+
 
 /*********************************************/
 /*Header*/
 
-.header {
+/* .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,12 +98,12 @@ body {
     border-bottom: solid #C4C4C4 0.2px;
 
 }
+
 @media screen and (min-width : 480px) {
     .header {
         min-width: 475px;
-        
     }
-    }
+}
 
 
 
@@ -52,7 +124,7 @@ body {
     }
 }
 
-.img-tour{
+.img-tour {
     text-align: center;
     height: 90px;
     width: 90px;
@@ -78,7 +150,7 @@ body {
 .logo-mobile {
     height: 90px;
     width: 90px;
-    
+
     filter: opacity(20%);
     margin-top: 2px;
     margin-left: 360px;
@@ -95,10 +167,16 @@ body {
 }
 
 
+body {
+    margin: 0;
+    line-height: 1.5;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(0deg, white, #af654e);
+    background-size: 200% 200%;
+    background-repeat: repeat;
 
-
-
-
+} */
 
 /***************************************/
 /*Principale*/
@@ -134,8 +212,8 @@ body {
 }
 
 
-.button {
-    display:inline-block;
+/* .button {
+    display: inline-block;
     height: 0;
     width: 0;
     margin-top: 72vh;
@@ -144,13 +222,13 @@ body {
     border-bottom: 29px solid transparent;
     border-left: 50px solid rgb(132, 126, 126, 0.439);
 
-}
+} */
 
 
 
-@media screen and (min-width : 480px) {
+/* @media screen and (min-width : 480px) {
     .button {
-        display:inline-block;
+        display: inline-block;
         height: 5px;
         width: 5px;
         margin-top: 46vh;
@@ -159,9 +237,9 @@ body {
         border-bottom: 29px solid transparent;
         border-left: 50px solid rgba(132, 126, 126, 0.439);
     }
-}
+} */
 
-@media screen and (min-width : 860px) {
+/* @media screen and (min-width : 860px) {
     .button {
         margin-left: 63vw;
 
@@ -175,15 +253,9 @@ body {
     }
 }
 
-.next{
-    position:absolute;
-   
-    
+.next {
+    position: absolute;
 
-}
 
-.footer{
-    background: linear-gradient(0deg,  C4C4C4, #ffffff);
-    background-size: 200% 200%;
-    background-repeat: repeat;
-}
+
+} */

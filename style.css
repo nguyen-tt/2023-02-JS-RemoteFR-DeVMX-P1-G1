@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    outline:solid red;
+ 
 }
 
 body {
@@ -8,7 +8,7 @@ body {
     line-height: 1.5;
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(0deg, white, #af654e);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.636), #af654e);
     background-size: 200% 200%;
     background-repeat: repeat;
 
@@ -18,53 +18,61 @@ body {
 /*Header*/
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     width: 100vw;
     height: 10vh;
     border-bottom: solid #C4C4C4 0.2px;
 
 }
+
 @media screen and (min-width : 480px) {
     .header {
-        min-width: 475px;
-        
+        display: flex;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 10vh;
+        border-bottom: solid #C4C4C4 0.2px;
+
     }
-    }
+}
 
 
 
 
 .title {
-    text-align: center;
-    font-size: 40px;
-    width: 90%;
-    padding-right: 0;
+    position: absolute;
+    top: 2.5%;
+    left: 15%;
+    font-size: 20px;
     font-family: 'Rampart One', cursive;
+
 
 }
 
 
 @media screen and (min-width : 480px) {
     .title {
-        font-size: 45px;
+        position: initial;
+        padding-left: 35vw;
+        font-size: 35px;
+        width: 90%;
     }
 }
 
-.img-tour{
-    text-align: center;
-    height: 90px;
-    width: 90px;
-    margin-right: 60px;
-
+@media screen and (min-width : 480px)and (max-width : 800px) {
+    .title {
+        position: initial;
+        padding-left: 10%;
+        font-size: 40px;
+        width: 90%;
+    }
 }
 
 
 .logo-desktop {
-    height: 90px;
-    width: 90px;
-    max-width: 20%;
+    height: 100px;
+    width: 100px;
     visibility: hidden;
 
 }
@@ -75,38 +83,47 @@ body {
     }
 }
 
+
+
 .logo-mobile {
     height: 90px;
     width: 90px;
-    
+    position: absolute;
+    top: 15%;
+    left: 72%;
     filter: opacity(20%);
-    margin-top: 2px;
-    margin-left: 360px;
     visibility: visible;
 }
 
-
 @media screen and (min-width : 480px) {
-
     .logo-mobile {
         visibility: hidden;
-
     }
 }
 
 
+.interro {
+    position: absolute;
+    top: 4%;
+    left: 85%;
+    filter: opacity(20%);
 
+}
 
-
+@media screen and (min-width : 480px) {
+    .interro {
+        position: initial;
+        padding-right: 5%;
+    }
+}
 
 
 /***************************************/
 /*Principale*/
 .console {
 
-    margin-top: 5vh;
-    margin-right: auto;
-    height: 125vh;
+    margin-top: 2rem;
+    height: 75vh;
     width: 100%;
     border-radius: 15px;
     box-shadow: inset -8px -8px 20px rgba(68, 65, 65, 0.659), 8px 8px 20px rgba(68, 65, 65, 0.659);
@@ -119,10 +136,11 @@ body {
 
 @media screen and (min-width : 480px) {
     .console {
-        margin-left: 15vw;
-        margin-top: 12vh;
+        margin-top: 5rem;
+        margin-left: 15%;
+        margin-right: 15%;
         height: 60vh;
-        width: 70vw;
+        width: 75%;
         border-radius: 15px;
         box-shadow: inset -8px -8px 20px rgba(68, 65, 65, 0.659), 8px 8px 20px rgba(68, 65, 65, 0.659);
         background-image: url("assets/wood-plank.jpg");
@@ -133,57 +151,33 @@ body {
 
 }
 
-
-.button {
-    display:inline-block;
-    height: 0;
-    width: 0;
-    margin-top: 72vh;
-    margin-left: 82vw;
-    border-top: 26px solid transparent;
-    border-bottom: 29px solid transparent;
-    border-left: 50px solid rgb(132, 126, 126, 0.439);
-
+.button-next {
+    position: fixed;
+    top: 78%;
+    left: 80%;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-left: 50px solid rgba(132, 126, 126, 0.439);
 }
 
-
-
 @media screen and (min-width : 480px) {
-    .button {
-        display:inline-block;
-        height: 5px;
-        width: 5px;
-        margin-top: 46vh;
-        margin-left: 62vw;
-        border-top: 26px solid transparent;
-        border-bottom: 29px solid transparent;
+    .button-next {
+        top: 70%;
+        left: 80%;
+        border-top: 25px solid transparent;
+        border-bottom: 25px solid transparent;
         border-left: 50px solid rgba(132, 126, 126, 0.439);
     }
 }
 
-@media screen and (min-width : 860px) {
-    .button {
-        margin-left: 63vw;
+/*******************************************/
 
-    }
-}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(0deg, #c4c4c452, rgba(255, 255, 255, 0.07));
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 
-@media screen and (max-width : 690px) {
-    .button {
-        margin-left: 60vw;
-
-    }
-}
-
-.next{
-    position:absolute;
-   
-    
-
-}
-
-.footer{
-    background: linear-gradient(0deg,  C4C4C4, #ffffff);
-    background-size: 200% 200%;
-    background-repeat: repeat;
 }

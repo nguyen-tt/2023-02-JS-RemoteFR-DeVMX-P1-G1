@@ -1,0 +1,26 @@
+.score {
+    position: absolute;
+    width: 25%;
+    height: 15%;
+    margin: 5%;
+    padding: 5%;
+    background: lightgoldenrodyellow;
+    border-radius: 50%;
+    border: 2px solid black;
+    text-align: center;
+    box-shadow: 10px 5px 5px lightslategray;
+}
+
+.scoreTitle {
+    font-size: large;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+}
+
+.scoreNumber {
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+}
+

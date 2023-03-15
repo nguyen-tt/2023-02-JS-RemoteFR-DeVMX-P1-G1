@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
- 
+
 }
 
 body {
@@ -19,7 +19,7 @@ body {
 
 .header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     align-content: center;
     width: 100vw;
@@ -28,95 +28,33 @@ body {
 
 }
 
-@media screen and (min-width : 480px) {
-    .header {
-        display: flex;
-        justify-content: space-around;
-        align-content: center;
-        align-items: center;
-        width: 100vw;
-        height: 10vh;
-        border-bottom: solid #C4C4C4 0.2px;
-
-    }
-}
-
-
-
-
 .title {
-    
-    font-size: 20px;
+    text-align: center;
+    font-size: 40px;
     font-family: 'Rampart One', cursive;
 
-
-}
-
-
-@media screen and (min-width : 480px) {
-    .title {
-        position: initial;
-        padding-left: 30vw;
-        font-size: 35px;
-        width: 90%;
-    }
-}
-
-@media screen and (min-width : 480px)and (max-width : 800px) {
-    .title {
-        position: initial;
-        padding-left: 10%;
-        font-size: 40px;
-        width: 90%;
-    }
 }
 
 .interro {
-  
     filter: opacity(20%);
-
 }
-
-@media screen and (min-width : 480px) {
-    .interro {
-        padding-right: 5%;
-    }
-}
-
 
 .logo-desktop {
     height: 100px;
     width: 100px;
     visibility: hidden;
-
+    display: none;
 }
-
-@media screen and (min-width : 480px) {
-    .logo-desktop {
-        visibility: visible;
-    }
-}
-
-
 
 .logo-mobile {
     height: 90px;
     width: 90px;
     position: absolute;
-    top: 15%;
-    left: 72%;
+    top: 12vh;
+    right: 1vw;
     filter: opacity(20%);
     visibility: visible;
 }
-
-@media screen and (min-width : 480px) {
-    .logo-mobile {
-        visibility: hidden;
-    }
-}
-
-
-
 
 /***************************************/
 /*Principale*/
@@ -134,41 +72,24 @@ body {
 
 }
 
-@media screen and (min-width : 480px) {
-    .console {
-        margin-top: 5rem;
-        margin-left: 15%;
-        margin-right: 15%;
-        height: 60vh;
-        width: 75%;
-        border-radius: 15px;
-        box-shadow: inset -8px -8px 20px rgba(68, 65, 65, 0.659), 8px 8px 20px rgba(68, 65, 65, 0.659);
-        background-image: url("assets/wood-plank.jpg");
-        background-repeat: repeat;
-        background-position: center;
-        background-size: 100%;
-    }
 
-}
 
 .button-next {
+    all: unset;
     position: fixed;
     top: 78%;
-    left: 80%;
+    right: 4vw;
     border-top: 25px solid transparent;
     border-bottom: 25px solid transparent;
     border-left: 50px solid rgba(132, 126, 126, 0.439);
+
 }
 
-@media screen and (min-width : 480px) {
-    .button-next {
-        top: 70%;
-        left: 80%;
-        border-top: 25px solid transparent;
-        border-bottom: 25px solid transparent;
-        border-left: 50px solid rgba(132, 126, 126, 0.439);
-    }
-}
+
+
+
+
+
 
 /*******************************************/
 
@@ -179,5 +100,57 @@ body {
     background: linear-gradient(0deg, #c4c4c452, rgba(255, 255, 255, 0.07));
     background-size: 100% 100%;
     background-repeat: no-repeat;
+}
 
+/***********************************/
+/*RESPONSIVE*/
+
+@media screen and (min-width : 480px) {
+    .header {
+        display: flex;
+        justify-content: space-evenly;
+        align-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 10vh;
+        border-bottom: solid #C4C4C4 0.2px;
+
+    }
+
+    .button-next {
+        top: 70%;
+        right: 12vw;
+        border-top: 25px solid transparent;
+        border-bottom: 25px solid transparent;
+        border-left: 50px solid rgba(132, 126, 126, 0.439);
+
+    }
+
+    .console {
+        margin-top: 5rem;
+        margin-left: 15%;
+        margin-right: 15%;
+        height: 60vh;
+        width: 75%;
+        background-size: 100%;
+    }
+
+    .logo-desktop {
+        visibility: visible;
+        display: block;
+    }
+
+    .logo-mobile {
+        visibility: hidden;
+    }
+
+    .interro {
+        padding-right: 5%;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 45px;
+        width: 90%;
+    }
 }

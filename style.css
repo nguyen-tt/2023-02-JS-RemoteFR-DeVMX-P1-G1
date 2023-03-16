@@ -268,7 +268,7 @@ input:checked + .slider:before {
 
 .screen .timer-bar {
   width: 90%;
-  height: 10px;
+  height: 8px;
   margin-left: 5%;
   border: solid 1px grey;
   background: white;
@@ -280,10 +280,11 @@ input:checked + .slider:before {
   position: absolute;
   background-color: grey;
   width: 0px;
-  height: 10px;
+  height: 8px;
   border-radius: 15px;
   animation: progres 120s infinite linear;
 }
+
 @keyframes progres {
   100% {
     width: 0%;
@@ -440,30 +441,55 @@ input:checked + .slider:before {
   /***********************/
   /*SCREEN*/
 
-  /* .screen h2 {
+  .screen h2 {
     font-size: medium;
+    padding: 0;
   }
 
-  .screen-score {
-    display: flex;
-    flex-direction: row;
-  }
+.screen .timer-bar {
+  height: 5px;
+  width: 85%;
+  margin-left: 1rem;
+  margin-right: 1.5rem;
 
-  .container-timer {
-    display: flex;
-  }
-
-  .screen {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .screen .timer-bar {
-    width: 80%;
-    height: 30%;
-  } */
-
-  
 }
 
-} */
+.timer-bar .progress {
+  height: 5px;
+}
+
+@keyframes progres {
+  100% {
+    width: 0%;
+  }
+  75% {
+    width: 21%;
+  }
+  50% {
+    width: 42%;
+  }
+  25% {
+    width: 63%;
+  }
+  0% {
+    width: 85%;
+  }
+}
+.screen{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0;
+}
+
+.screen .screen-score{
+  font-size: medium;
+  position: relative;
+  top: 0;
+  right: 2%;
+}
+
+.screen .container-timer{
+  display: flex;
+  justify-content: space-around;
+  margin: 1%;
+}

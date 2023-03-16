@@ -85,14 +85,8 @@ body {
 
 }
 
-
-
-
-
-
-
 /*******************************************/
-
+/*FOOTER*/
 .footer {
     position: absolute;
     bottom: 0;
@@ -123,7 +117,6 @@ body {
         border-top: 25px solid transparent;
         border-bottom: 25px solid transparent;
         border-left: 50px solid rgba(132, 126, 126, 0.439);
-
     }
 
     .console {

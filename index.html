@@ -11,39 +11,47 @@
   <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&family=Space+Mono&display=swap"
     rel="stylesheet">
-  <title>Header</title>
+  <title>Quîzzz</title>
 </head>
 
 <body>
   <div class="header">
     <img class="logo-desktop" src="/assets/logo" alt="logo">
-    <h1 class="title">Quîzzz : Paris<img src="assets/Tour-eiffel.png"/></h1>
+    <h1 class="title">Quîzzz : Paris<img src="assets/Tour-eiffel.png" alt="Tour eiffel"></h1>
     <img class="interro" src="assets/point-dinterrogation-dans-un-cercle.png" alt="Point d'intérrogation">
   </div>
 
 
 
   <div class="console">
-    <img class="logo-mobile" src="/assets/logo-profond.png" alt="logo" srcset="" />
+    <img class="logo-mobile" src="/assets/logo-profond.png" alt="logo">
     <div class="start-button-container">
-    <label for="start-button" class="switch">
-      <input type="checkbox" name="start-button" id="start-button">
-      <span class="slider"></span>
+      <label for="start-button" class="switch">
+        <input type="checkbox" name="start-button" id="start-button">
+        <span class="slider"></span>
       </label>
       <span class="start-button-title">Start</span>
       <span class="start-button-lable">O&nbsp;&nbsp;I</span>
-  </div>
-<div class="game-container">
-  <div class="screen">
-    <h2> Comment vas-tu mon ami Frederico ?</h2>
-
-    <div class="container-timer">
-      <div class="timer-bar">
-        <div class="progress"></div>
-      </div>
-      <div class="screen-score">2/5</div>
     </div>
-  </div>
+    <div class="game-container">
+      <div class="screen">
+        <h2> Comment vas-tu mon ami Frederico ?</h2>
+
+        <div class="container-timer">
+          <div class="timer-bar">
+            <div class="progress"></div>
+          </div>
+          <div class="screen-score">2/5</div>
+        </div>
+      </div>
+
+      <div class="answers-container">
+        <button class="answer-1">Très bien !</button>
+        <button class="answer-2">Bof !</button>
+        <button class="answer-3">Très mal</button>
+        <button class="answer-4">Toto</button>
+      </div>
+    </div>
 
   <div class="answers-container">
     <button class="answer-1">Très bien !</button>
@@ -57,15 +65,21 @@
 </div>
 </div>
 
-  <img class="button-next" src="assets/Polygon 2.png" height="50" alt="Bouton next"/> 
+    <img class="button-next" src="assets/Polygon.png" height="50" alt="Bouton next">
 
- 
 
   </div>
+
 
   <footer class="footer">
     <p class="Team"> &copy; Quîzzz Team</p>
     <span class="socialNet"></span>
+    <div class="socialNet">
+      <img src="assets/facebook.png" alt="facebook">
+      <img src="assets/linkedin.png" alt="linkedin">
+      <img src="assets/twitter.png" alt="twitter">
+      <img src="assets/github.png" alt="github">
+    </div>
   </footer>
   <script src="script.js"></script>
 

@@ -397,11 +397,6 @@ input:checked + .slider:before {
     border-bottom: solid #c4c4c4 0.2px;
   }
 
-  .button-next {
-    /* position:fixed;
-    top: 70%;
-    right: 12vw;*/
-  }
 
   .console {
     margin-top: 5rem;

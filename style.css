@@ -7,7 +7,7 @@ body {
   line-height: 1.5;
   height: 100%;
   width: 100vw;
-  background: linear-gradient(180deg, rgba(175, 101, 78, 0.53) 73.44%, rgba(194, 127, 107, 0) 100%); 
+  background: linear-gradient(180deg, rgba(175, 101, 78, 0.53) 73.44%, rgba(194, 127, 107, 0) 100%);
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
@@ -26,11 +26,11 @@ body {
 }
 
 .title {
-  margin-top : 30px;
+  margin-top: 30px;
   text-align: center;
   font-size: 30px;
   font-family: "Rampart One", cursive;
-}
+  }
 
 .interro {
   filter: opacity(20%);
@@ -140,17 +140,17 @@ body {
   transition: 0.4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background: rgba(173, 163, 163, 0.5);
   box-shadow: inset 5px 5px 3px rgba(0, 0, 0, 0.25);
 }
 
-input:focus + .slider {
+input:focus+.slider {
   background: rgba(173, 163, 163, 0.5);
   box-shadow: inset 5px 5px 3px rgba(0, 0, 0, 0.25);
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(19px);
   -ms-transform: translateX(19px);
   transform: translateX(19px);
@@ -178,7 +178,7 @@ input:checked + .slider:before {
   margin: 0.4rem;
   padding: 0.5rem 1.5rem;
   border: none;
-  border-radius:30px;
+  border-radius: 30px;
   background-color: #c4c4c4;
   box-shadow: inset 4px 5px 4px 0 rgba(0, 0, 0, 0.25);
   cursor: pointer;
@@ -205,6 +205,7 @@ input:checked + .slider:before {
     flex-direction: row;
     flex-wrap: wrap;
   }
+
   .answers-container button {
     width: 40%;
     font-size: 0.8rem;
@@ -217,8 +218,9 @@ input:checked + .slider:before {
     padding: 0.5rem 1.5rem;
   }
 }
-@media screen and (min-width: 1200) {
-} 
+
+@media screen and (min-width: 1200) {}
+
 /*? ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  */
 
 .button-next {
@@ -284,19 +286,24 @@ input:checked + .slider:before {
   border-radius: 15px;
   animation: progres 120s infinite linear;
 }
+
 @keyframes progres {
   100% {
     width: 0%;
   }
+
   75% {
     width: 25%;
   }
+
   50% {
     width: 50%;
   }
+
   25% {
     width: 75%;
   }
+
   0% {
     width: 90%;
   }
@@ -348,12 +355,30 @@ input:checked + .slider:before {
 
 /*FOOTER*/
 .footer {
+  display:flex;
+  justify-content: space-between;
+  padding : 0 10px;
+  align-items: center;
+  align-content: center;
   position: absolute;
   bottom: 0;
   width: 100%;
-  background: linear-gradient(0deg, #c4c4c452, rgba(255, 255, 255, 0.07));
+  background: linear-gradient(0deg, #c4c4c4e9, rgba(255, 255, 255, 0.07));
   background-size: 100% 100%;
   background-repeat: no-repeat;
+}
+
+.footer .Team{
+  margin-left: 20px;
+  font-family:"Press Start 2P", cursive;
+}
+.socialNet img{
+height: 25px;
+width: 25px;
+margin: 0 10px;
+opacity : 40%;
+
+
 }
 
 /***********************************/
@@ -384,7 +409,7 @@ input:checked + .slider:before {
     background-size: 100%;
   }
 
-  .game-container{
+  .game-container {
     width: 80%;
     height: 85%;
   }
@@ -451,5 +476,5 @@ input:checked + .slider:before {
     height: 30%;
   } */
 
-  
+
 }

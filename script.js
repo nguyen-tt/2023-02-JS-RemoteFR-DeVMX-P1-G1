@@ -8,6 +8,8 @@ const answersButton = document.querySelectorAll(".answers-container button");
 const scoreTitle = document.querySelector(".scoreTitle");
 const scoreNumber = document.querySelector(".scoreNumber");
 const smiley = document.querySelector("#smiley");
+const interro  = document.querySelector(".interro");
+const about = document.querySelector(".about")
 
 const questionText = document.querySelector("h2");
 const answer1 = document.querySelector(".answer1");
@@ -155,8 +157,46 @@ buttonNext.addEventListener("click", function () {
 //incrémentation du nombre de questions restantes
 
 buttonNext.addEventListener("click", function () {
-  tempNumberQuestion += 1;
-  //runningQuestion += 1;
+
+    tempNumberQuestion += 1;
+    //runningQuestion += 1;
+
+    if (tempNumberQuestion <= questionsList.length) {
+        screenQuestion.innerHTML = `${tempNumberQuestion}/${questionsList.length}`
+
+    }
+    else {
+        smiley.style.display = ("flex")
+
+        // calculate the amount of question percent answered by the user
+        const scorePerCent = Math.round(100 * scoreResult / questionsList.length);
+
+        // choose the image based on the scorePerCent
+        let img = (scorePerCent >= 80) ? "assets/5.png" :
+                  (scorePerCent >= 60) ? "assets/4.png" :
+                  (scorePerCent >= 40) ? "assets/3.png" :
+                  (scorePerCent >= 20) ? "assets/2.png" :
+                  "assets/1.png";
+
+        smiley.innerHTML = "<img src=" + img + ">";
+        smiley.innerHTML += "<p>" + scorePerCent + "%</p>";
+    }
+
+})
+ 
+
+//Comportement point d'interrogation
+    interro.addEventListener("click", function (){
+
+      about.style.display = "block";
+      
+      })
+      
+      about.addEventListener("click",function(){
+        about.style.display = "none";
+      })
+      
+
 
   if (tempNumberQuestion <= questionsList.length) {
     screenQuestion.innerHTML = `${tempNumberQuestion}/${questionsList.length}`;
@@ -188,6 +228,11 @@ buttonNext.addEventListener("click", function () {
 //function when time over = wrong answer
 
 const timerWrong = () => {
-  if (count <= questionTime) {
-  }
-};
+
+    if(count <= questionTime){
+        
+    }
+}
+
+
+

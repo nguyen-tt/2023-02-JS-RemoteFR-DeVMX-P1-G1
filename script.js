@@ -8,7 +8,8 @@ const answersButton = document.querySelectorAll(".answers-container button");
 const scoreTitle = document.querySelector(".scoreTitle");
 const scoreNumber = document.querySelector(".scoreNumber");
 const smiley = document.querySelector("#smiley");
-
+const interro  = document.querySelector(".interro");
+const about = document.querySelector(".about")
 
 const questionText = document.querySelector("h2");
 const answer1 = document.querySelector(".answer1");
@@ -81,31 +82,30 @@ modalStartButton.addEventListener("click", () => {
 });
 
 const validateQuestion = () => {
-    let questionOnScreen = questionsList[2];
-
+    let questionOnScreen = questionsList[3];
+  
     answersButton.forEach((button) => {
-        button.addEventListener("click", (element) => {
-            // console.log(runningQuestion)
-            // const tempButton = document.querySelectorAll(`".${element.target.value}"`);
-            button.dataset.clicked = "true";
-
-            if (element.target.value === questionOnScreen.correctAnswer && button.dataset.clicked === "true") {
-                button.style.backgroundColor = "#8cb581";
-
-                // tempButton.forEach((element) => {
-
-                //     element.style.backgroundColor = "#c96464"}
-                //     );
-                scoreIncrementation();
-                // console.log(element);
-
-            } else {
-                button.style.backgroundColor = "#c96464";
-
-            }
-        })
-    })
-}
+      button.addEventListener("click", (answer) => {
+        const correctAnswerButton = document.querySelector(
+          `.${questionOnScreen.correctAnswer}`
+        );
+  
+        if (answer.target.value === questionOnScreen.correctAnswer) {
+          answersButton.forEach((button) => {
+            button.style.backgroundColor = "#c96464";
+          });
+          correctAnswerButton.style.backgroundColor = "#8cb581";
+          scoreIncrementation();
+        } else {
+          answersButton.forEach((button) => {
+            button.style.backgroundColor = "#c96464";
+          });
+          correctAnswerButton.style.backgroundColor = "#8cb581";
+        }
+      });
+    });
+  };
+  
 
 validateQuestion();
 // const validateQuestion = () => {
@@ -183,11 +183,21 @@ buttonNext.addEventListener("click", function () {
         smiley.innerHTML = "<img src=" + img + ">";
         smiley.innerHTML += "<p>" + scorePerCent + "%</p>";
     }
+
 })
  
 
-    //Comportement point d'interrogation
+//Comportement point d'interrogation
+    interro.addEventListener("click", function (){
 
+      about.style.display = "block";
+      
+      })
+      
+      about.addEventListener("click",function(){
+        about.style.display = "none";
+      })
+      
 
 
 
@@ -199,4 +209,5 @@ const timerWrong = () => {
         
     }
 }
+
 

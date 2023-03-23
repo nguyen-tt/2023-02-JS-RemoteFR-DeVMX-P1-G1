@@ -420,7 +420,11 @@ body {
   }
 
   .interro {
-    padding-right: 5%;
+    transition: transform .1s;
+  }
+
+  .interro:hover{
+    transform:scale(1.25);
   }
 
   .answers-container {
@@ -482,7 +486,12 @@ body {
     width: 25px;
     margin: 0 10px;
     opacity: 40%;
+    transition: transform .1s;
   }
+
+  .socialNet img:hover{
+    transform:scale(1.25);
+      }
 
   /***********************/
   /*SCREEN*/
@@ -550,3 +559,12 @@ height :50px;
 .button-next:hover{
   transform:scale(1.25);
     }
+
+
+.about{
+  z-index: 1;
+  display : none;
+  position :absolute;
+  height: auto;
+ }
+  

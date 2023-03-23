@@ -81,7 +81,6 @@ const validateQuestion = (question) => {
       const correctButton = document.querySelector(
         `.${questionOnScreen.correctAnswer}`
       );
-      console.log("button.target.value ==> ", button.target.value);
       if (answer.value === questionOnScreen.correctAnswer) {
         scoreIncrementation();
         answersButton.forEach((button) => {
@@ -91,7 +90,6 @@ const validateQuestion = (question) => {
           button.disabled = true;
         });
         correctButton.style.backgroundColor = "#8cb581";
-        console.log("button correct answer");
       } else {
         answersButton.forEach((button) => {
           button.style.backgroundColor = "#c96464";
@@ -100,7 +98,6 @@ const validateQuestion = (question) => {
           button.disabled = true;
         });
         correctButton.style.backgroundColor = "#8cb581";
-        console.log("button correct answer");
       }
     });
   });

@@ -52,7 +52,7 @@ const questionsList = [
   },
 ];
 
-let runningQuestion = 0;
+let runningQuestion = -1;
 let scoreResult = 0;
 let tempNumberQuestion = 1;
 let questionTime = 25; // 25s
@@ -64,6 +64,7 @@ const modal = document.querySelector(".modal");
 timerBar.style.display = "none";
 scoreTitle.style.display = "none";
 scoreNumber.style.display = "none";
+screenQuestion.style.display ="none";
 
 //* Close modal and show first question on the screen
 modalStartButton.addEventListener("click", () => {
@@ -71,39 +72,32 @@ modalStartButton.addEventListener("click", () => {
   timerBar.style.display = "block";
   scoreTitle.style.display = "block";
   scoreNumber.style.display = "block";
+  screenQuestion.style.display ="block";
   screenQuestion.innerHTML = `${tempNumberQuestion}/${questionsList.length}`;
   nextQuestion();
 });
 
-const validateQuestion = (question) => {
-  const questionOnScreen = questionsList[question];
+const validateQuestion = (answer) => {
+  const questionOnScreen = questionsList[runningQuestion];
+  const correctButton = document.querySelector(`.${questionOnScreen.correctAnswer}`);
+  if (answer.value === questionOnScreen.correctAnswer) {
+    scoreIncrementation();
+  }
+  answersButton.forEach((button) => {
+    button.style.backgroundColor = "#c96464";
 
-  answersButton.forEach((answer) => {
-    answer.addEventListener("click", (button) => {
-      const correctButton = document.querySelector(
-        `.${questionOnScreen.correctAnswer}`
-      );
-      if (answer.value === questionOnScreen.correctAnswer) {
-        scoreIncrementation();
-        answersButton.forEach((button) => {
-          button.style.backgroundColor = "#c96464";
-
-          //* Disable answers buttons
-          button.disabled = true;
-        });
-        correctButton.style.backgroundColor = "#8cb581";
-      } else {
-        answersButton.forEach((button) => {
-          button.style.backgroundColor = "#c96464";
-
-          //* Disable answers buttons
-          button.disabled = true;
-        });
-        correctButton.style.backgroundColor = "#8cb581";
-      }
-    });
+    //* Disable answers buttons
+    button.disabled = true;
   });
+  correctButton.style.backgroundColor = "#8cb581";
 };
+
+// Init answer click event
+answersButton.forEach((answer) => {
+  answer.addEventListener("click", (event) => {
+    validateQuestion(event.currentTarget);
+  });
+});
 
 // validateQuestion();
 
@@ -126,6 +120,7 @@ function scoreIncrementation() {
 //////////////////////changement questions&reponses associees
 
 const nextQuestion = () => {
+  runningQuestion += 1;
   if (questionsList.length > runningQuestion) {
     const q = questionsList[runningQuestion];
     questionText.innerHTML = q.questionText;
@@ -133,9 +128,6 @@ const nextQuestion = () => {
     answer2.innerHTML = q.answer2;
     answer3.innerHTML = q.answer3;
     answer4.innerHTML = q.answer4;
-
-    validateQuestion(runningQuestion);
-    runningQuestion += 1;
   }
 };
 
@@ -186,15 +178,13 @@ buttonNext.addEventListener("click", function () {
  
 
 //Comportement point d'interrogation
-    interro.addEventListener("click", function (){
-
-      about.style.display = "block";
-      
-      })
-      
-      about.addEventListener("click",function(){
-        about.style.display = "none";
-      })
+interro.addEventListener("click", function (){
+  about.style.display = "block";
+});
+  
+about.addEventListener("click",function(){
+  about.style.display = "none";
+});
       
 
 
@@ -221,7 +211,7 @@ buttonNext.addEventListener("click", function () {
     smiley.innerHTML = "<img src=" + img + ">";
     smiley.innerHTML += "<p>" + scorePerCent + "%</p>";
   }
-});
+;
 
 //Comportement point d'interrogation
 

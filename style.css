@@ -80,96 +80,76 @@ body {
   background-size: 300%;
 }
 
-/*? ***************** Frederico Section*************************  */
-/*******************************************/
-/************* Start Button *************/
 
-.start-button-container {
-  font-family: "Roboto", sans-serif;
-  font: 700;
-  display: flex;
+.smiley{
+  display:none;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 8rem;
-  padding-top: 1rem;
-}
-
-.start-button-lable {
-  color: #918080;
-  margin-left: 1.2rem;
-}
-
-.start-button-title {
-  font-size: 1rem;
-  color: #918080;
-  margin-left: 0.5rem;
-}
-
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 2.2rem;
-  height: 1rem;
-  margin-left: 0.8rem;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
+  justify-content: space-evenly;
   position: absolute;
-  cursor: pointer;
+  z-index: 1;
+  background-color: rgba(108, 105, 105, 0.672);
+  height: 84%;
+  width: 100%;
+}
+
+.smiley img{
+  height: 150px;
+  width: 150px;
+  
+}
+.smiley p{
+  font-size : 35px;
+  font-family: "Press Start 2P", cursive;
+  font-weight: 700;
+}
+
+
+/*? ***************** Frederico Section*************************  */
+
+/************* Modal *************/
+
+.modal {
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(173, 163, 163, 0.5);
-  box-shadow: inset 5px 5px 3px rgba(0, 0, 0, 0.25);
-  border-radius: 2px;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(16, 5, 107, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 100;
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 0.9rem;
-  width: 0.9rem;
-  left: 1px;
-  right: 1px;
-  bottom: 1px;
-  top: 1px;
-  background-color: black;
-  border-radius: 2px;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+.modal-hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
-input:checked + .slider {
-  background: rgba(173, 163, 163, 0.5);
-  box-shadow: inset 5px 5px 3px rgba(0, 0, 0, 0.25);
+.modal-start-button {
+  font-family: "Press Start 2P", cursive;
+  font-size: 2.4rem;
+  font-weight: bold;
+  padding: 0.8rem;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: gray;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  box-shadow: 0 0.2em gray;
+  cursor: pointer;
 }
 
-input:focus + .slider {
-  background: rgba(173, 163, 163, 0.5);
-  box-shadow: inset 5px 5px 3px rgba(0, 0, 0, 0.25);
+.modal-start-button:active {
+  box-shadow: none;
+  position: relative;
+  top: 0.2em;
 }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(19px);
-  -ms-transform: translateX(19px);
-  transform: translateX(19px);
-}
-
-/**************************************************/
 /* SCREEN */
 .game-container {
   display: flex;
@@ -177,13 +157,14 @@ input:checked + .slider:before {
   flex-direction: column;
   align-items: center;
   align-content: center;
-  height: 70%;
+  padding-top: 5rem;
+  height: 80%;
 }
 
 .screen {
   background-color: white;
   border-radius: 15px;
-  height: 9rem;
+  height: 100%;
   width: 80%;
   padding-bottom: 7%;
   box-shadow: inset 4px 4px 10px 4px rgba(0, 0, 0, 0.25);
@@ -224,7 +205,7 @@ input:checked + .slider:before {
   width: 0px;
   height: 8px;
   border-radius: 15px;
-  animation: progres 120s infinite linear;
+  animation: progres 35s infinite linear;
 }
 
 @keyframes progres {
@@ -274,7 +255,7 @@ input:checked + .slider:before {
   font-size: 1rem;
   font-weight: 600;
   width: 100%;
-  height: 3rem;
+  height: 3.5rem;
   margin: 0.4rem;
   padding: 0.5rem 1.5rem;
   border: none;
@@ -290,12 +271,12 @@ input:checked + .slider:before {
 }
 
 /** correct answer button */
-.answers-container .answer-1:focus {
+.correct-answer {
   background-color: #8cb581;
 }
 
 /** incorrecte answer button */
-.answers-container .answer-3:focus {
+.incorrect-answer  {
   background-color: #c96464;
 }
 
@@ -377,8 +358,8 @@ input:checked + .slider:before {
   font-family: "Roboto", cursive;
 }
 .socialNet img {
-  height: 15px;
-  width: 15px;
+  height: 25px;
+  width: 25px;
   margin: 0 10px;
   opacity: 40%;
 }
@@ -407,9 +388,26 @@ input:checked + .slider:before {
     background-size: 100%;
   }
 
+  
+  
+  .smiley{
+    display:none;
+    z-index: 1;
+    position: absolute;
+    background-color: rgba(108, 105, 105, 0.672);
+    height: 86%;
+    width: 100%;
+  
+  }
+
+  
+  
+
   .game-container {
-    width: 80%;
-    height: 70%;
+    padding-right: 12%;
+    height: 87%;
+    padding-top: 0;
+    justify-content: space-evenly;
   }
 
   .logo-desktop {
@@ -422,7 +420,11 @@ input:checked + .slider:before {
   }
 
   .interro {
-    padding-right: 5%;
+    transition: transform .1s;
+  }
+
+  .interro:hover{
+    transform:scale(1.25);
   }
 
   .answers-container {
@@ -433,11 +435,12 @@ input:checked + .slider:before {
 
   .answers-container button {
     width: 49%;
-    /* height: 100%; */
+    height: 70%;
     max-height: 100%;
     font-size: 0.8rem;
     margin: 0.4rem 0;
     padding: 0.5rem 0.5rem;
+
   }
 
   .test {
@@ -464,9 +467,9 @@ input:checked + .slider:before {
   .basconsole {
     flex-direction: column;
     width: unset;
-    height: 45%;
+    height: 41%;
     top: 28%;
-    right: 15vw;
+    right: 13vw;
   }
 
   .title {
@@ -483,7 +486,12 @@ input:checked + .slider:before {
     width: 25px;
     margin: 0 10px;
     opacity: 40%;
+    transition: transform .1s;
   }
+
+  .socialNet img:hover{
+    transform:scale(1.25);
+      }
 
   /***********************/
   /*SCREEN*/
@@ -526,6 +534,7 @@ input:checked + .slider:before {
   display: flex;
   flex-direction: column;
   padding-bottom: 0;
+  height: 12rem;
 }
 
 .screen .screen-score{
@@ -540,3 +549,22 @@ input:checked + .slider:before {
   justify-content: space-around;
   margin: 1%;
 }
+}
+
+
+.button-next{
+height :50px;
+  transition: transform .1s;
+}
+.button-next:hover{
+  transform:scale(1.25);
+    }
+
+
+.about{
+  z-index: 1;
+  display : none;
+  position :absolute;
+  height: auto;
+ }
+  

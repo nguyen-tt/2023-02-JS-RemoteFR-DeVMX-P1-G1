@@ -18,42 +18,38 @@ const answer3 = document.querySelector(".answer3");
 const answer4 = document.querySelector(".answer4");
 
 const questionsList = [
-    {
-        questionId: 1,
-        questionText: "Question 1?",
-        answer1: "10",
-        answer2: "20",
-        answer3: "30",
-        answer4: "40",
-        correctAnswer: "answer1"
-    },
-    {
-        questionId: 2,
-        questionText: "Question 2?",
-        answer1: "20",
-        answer2: "30",
-        answer3: "40",
-        answer4: "10",
-        correctAnswer: "answer2"
-    },
-    {
-        questionId: 3,
-        questionText: "Question 3?",
-        answer1: "30",
-        answer2: "40",
-        answer3: "50",
-        answer4: "60",
-        correctAnswer: "answer3"
-    },
-    {
-        questionId: 4,
-        questionText: "Question 4?",
-        answer1: "40",
-        answer2: "50",
-        answer3: "60",
-        answer4: "70",
-        correctAnswer: "answer4"
-    },
+  {
+    questionText: "Question 1?",
+    answer1: "10",
+    answer2: "20",
+    answer3: "30",
+    answer4: "40",
+    correctAnswer: "answer1",
+  },
+  {
+    questionText: "Question 2?",
+    answer1: "20",
+    answer2: "30",
+    answer3: "40",
+    answer4: "10",
+    correctAnswer: "answer2",
+  },
+  {
+    questionText: "Question 3?",
+    answer1: "30",
+    answer2: "40",
+    answer3: "50",
+    answer4: "60",
+    correctAnswer: "answer3",
+  },
+  {
+    questionText: "Question 4?",
+    answer1: "40",
+    answer2: "50",
+    answer3: "60",
+    answer4: "70",
+    correctAnswer: "answer4",
+  },
 ];
 
 let runningQuestion = 0;
@@ -69,97 +65,99 @@ timerBar.style.display = "none";
 scoreTitle.style.display = "none";
 scoreNumber.style.display = "none";
 
-
 //* Close modal and show first question on the screen
 modalStartButton.addEventListener("click", () => {
-    modal.classList.add("modal-hidden");
-    timerBar.style.display = "block";
-    scoreTitle.style.display = "block";
-    scoreNumber.style.display = "block";
-    screenQuestion.innerHTML = `${tempNumberQuestion}/${questionsList.length}`;
-    nextQuestion();
-
+  modal.classList.add("modal-hidden");
+  timerBar.style.display = "block";
+  scoreTitle.style.display = "block";
+  scoreNumber.style.display = "block";
+  screenQuestion.innerHTML = `${tempNumberQuestion}/${questionsList.length}`;
+  nextQuestion();
 });
 
-const validateQuestion = () => {
-    let questionOnScreen = questionsList[3];
-  
-    answersButton.forEach((button) => {
-      button.addEventListener("click", (answer) => {
-        const correctAnswerButton = document.querySelector(
-          `.${questionOnScreen.correctAnswer}`
-        );
-  
-        if (answer.target.value === questionOnScreen.correctAnswer) {
-          answersButton.forEach((button) => {
-            button.style.backgroundColor = "#c96464";
-          });
-          correctAnswerButton.style.backgroundColor = "#8cb581";
-          scoreIncrementation();
-        } else {
-          answersButton.forEach((button) => {
-            button.style.backgroundColor = "#c96464";
-          });
-          correctAnswerButton.style.backgroundColor = "#8cb581";
-        }
-      });
+const validateQuestion = (question) => {
+  const questionOnScreen = questionsList[question];
+
+  answersButton.forEach((answer) => {
+    answer.addEventListener("click", (button) => {
+      const correctButton = document.querySelector(
+        `.${questionOnScreen.correctAnswer}`
+      );
+      if (answer.value === questionOnScreen.correctAnswer) {
+        scoreIncrementation();
+        answersButton.forEach((button) => {
+          button.style.backgroundColor = "#c96464";
+
+          //* Disable answers buttons
+          button.disabled = true;
+        });
+        correctButton.style.backgroundColor = "#8cb581";
+      } else {
+        answersButton.forEach((button) => {
+          button.style.backgroundColor = "#c96464";
+
+          //* Disable answers buttons
+          button.disabled = true;
+        });
+        correctButton.style.backgroundColor = "#8cb581";
+      }
     });
-  };
-  
+  });
+};
 
-validateQuestion();
-// const validateQuestion = () => {
-//     let questionOnScreen = questionsList[runningQuestion];
-// tempAnswersButton.addEventListener("clic")
-// }
-
+// validateQuestion();
 
 //incrementation du score
 //questionsList[runningQuestion].correctAnswer
 
 function scoreIncrementation() {
-    //if (answersButton === questionsList[runningQuestion].correctAnswer) {
-    scoreResult += 1;
-    scoreNumber.innerHTML = `${scoreResult}`;
-    return scoreResult;
-    //} else {
-    //scoreResult -= 0;
-    //scoreResult.innerHTML = `${scoreResult}`;
+  //if (answersButton === questionsList[runningQuestion].correctAnswer) {
+  scoreResult += 1;
+  scoreNumber.innerHTML = `${scoreResult}`;
+  return scoreResult;
+  //} else {
+  //scoreResult -= 0;
+  //scoreResult.innerHTML = `${scoreResult}`;
 
-    //}
+  //}
 }
 //.addEventListener("click", function () {
-
-
-
 
 //////////////////////changement questions&reponses associees
 
 const nextQuestion = () => {
+  if (questionsList.length > runningQuestion) {
     const q = questionsList[runningQuestion];
-
     questionText.innerHTML = q.questionText;
     answer1.innerHTML = q.answer1;
     answer2.innerHTML = q.answer2;
     answer3.innerHTML = q.answer3;
     answer4.innerHTML = q.answer4;
+
+    validateQuestion(runningQuestion);
     runningQuestion += 1;
-}
+  }
+};
 
 // Reset timer
 buttonNext.addEventListener("click", function () {
-    //timer reset
-    progress.style.animation = 'none';
-    progress.offsetWidth; /* trigger reflow */
-    progress.style.animation = null;
-    nextQuestion();
+  //timer reset
+  progress.style.animation = "none";
+  progress.offsetWidth; /* trigger reflow */
+  progress.style.animation = null;
 
-
-},)
+  //* Enable answers buttons and reset colors
+  answersButton.forEach((button) => {
+    button.disabled = false;
+    button.style.backgroundColor = "#c4c4c4";
+  });
+  nextQuestion();
+});
 
 //incrémentation du nombre de questions restantes
 
 buttonNext.addEventListener("click", function () {
+
     tempNumberQuestion += 1;
     //runningQuestion += 1;
 
@@ -200,14 +198,41 @@ buttonNext.addEventListener("click", function () {
       
 
 
+  if (tempNumberQuestion <= questionsList.length) {
+    screenQuestion.innerHTML = `${tempNumberQuestion}/${questionsList.length}`;
+  } else {
+    smiley.style.display = "flex";
 
+    // calculate the amount of question percent answered by the user
+    const scorePerCent = Math.round((100 * scoreResult) / questionsList.length);
+
+    // choose the image based on the scorePerCent
+    let img =
+      scorePerCent >= 80
+        ? "assets/5.png"
+        : scorePerCent >= 60
+        ? "assets/4.png"
+        : scorePerCent >= 40
+        ? "assets/3.png"
+        : scorePerCent >= 20
+        ? "assets/2.png"
+        : "assets/1.png";
+
+    smiley.innerHTML = "<img src=" + img + ">";
+    smiley.innerHTML += "<p>" + scorePerCent + "%</p>";
+  }
+});
+
+//Comportement point d'interrogation
 
 //function when time over = wrong answer
 
 const timerWrong = () => {
+
     if(count <= questionTime){
         
     }
 }
+
 
 

@@ -1,0 +1,575 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  line-height: 1.5;
+  height: 100%;
+  width: 100vw;
+  background: linear-gradient(180deg,
+      rgba(175, 101, 78, 0.53) 73.44%,
+      rgba(194, 127, 107, 0) 100%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/*********************************************/
+/*Header*/
+
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  width: 100vw;
+  height: 10vh;
+  border-bottom: solid #c4c4c4 0.2px;
+}
+
+.title {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Rampart One", cursive;
+}
+
+.interro {
+  filter: opacity(20%);
+}
+
+.logo-desktop {
+  height: 100px;
+  width: 100px;
+  visibility: hidden;
+  display: none;
+}
+
+.logo-mobile {
+  position: absolute;
+  height: 40px;
+  width: 53px;
+  top: 12vh;
+  right: 8vw;
+  visibility: visible;
+}
+
+/***************************************/
+/*Principale*/
+.console {
+  margin-top: 0.5rem;
+  height: 83vh;
+  width: 100%;
+  border-radius: 40px;
+  box-shadow: inset -20px -20px 20px rgba(68, 65, 65, 0.659),
+    8px 8px 20px rgba(68, 65, 65, 0.659);
+  background-image: url("assets/wood-plank.jpg");
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 300%;
+}
+
+
+.smiley {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(108, 105, 105, 0.672);
+  height: 84%;
+  width: 100%;
+}
+
+.smiley img {
+  height: 150px;
+  width: 150px;
+
+}
+
+.smiley p {
+  font-size: 35px;
+  font-family: "Press Start 2P", cursive;
+  font-weight: 700;
+}
+
+.about {
+  z-index: 1;
+  display: none;
+  position: absolute;
+}
+
+/*? ***************** Frederico Section*************************  */
+
+/************* Modal *************/
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(99, 98, 112, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.modal-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-start-button {
+  font-family: "Press Start 2P", cursive;
+  font-size: 2.4rem;
+  font-weight: bold;
+  padding: 0.8rem;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: gray;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  box-shadow: 0 0.2em gray;
+  cursor: pointer;
+}
+
+.modal-start-button:active {
+  box-shadow: none;
+  position: relative;
+  top: 0.2em;
+}
+
+/* SCREEN */
+.game-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  padding-top: 11rem;
+  height: 60%;
+}
+
+.screen {
+  background-color: white;
+  border-radius: 15px;
+  height: 100%;
+  width: 80%;
+  padding-bottom: 7%;
+  box-shadow: inset 4px 4px 10px 4px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.screen h2 {
+  font-size: small;
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  height: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+}
+
+.container-timer {
+  display: block;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.screen .timer-bar {
+  width: 90%;
+  height: 8px;
+  margin-left: 5%;
+  border: solid 1px grey;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px 0px grey;
+}
+
+.timer-bar .progress {
+  position: absolute;
+  background-color: grey;
+  width: 0px;
+  height: 8px;
+  border-radius: 15px;
+  animation: progres 35s infinite linear;
+}
+
+@keyframes progres {
+  100% {
+    width: 0%;
+  }
+
+  75% {
+    width: 25%;
+  }
+
+  50% {
+    width: 50%;
+  }
+
+  25% {
+    width: 75%;
+  }
+
+  0% {
+    width: 90%;
+  }
+}
+
+.screen .screen-score {
+  font-family: "Press Start 2P", cursive;
+  font-size: small;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+
+/*******************************************/
+/************* Answers Buttons *************/
+
+.answers-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 80%;
+  margin-top: 1rem;
+  height: 35vh;
+}
+
+.answers-container button {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  height: 3.5rem;
+  margin: 0.4rem;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  background-color: #c4c4c4;
+  box-shadow: inset 4px 5px 4px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.answers-container button:active {
+  transform: scale(0.98);
+}
+
+/** correct answer button */
+.correct-answer {
+  background-color: #8cb581;
+}
+
+/** incorrecte answer button */
+.incorrect-answer {
+  background-color: #c96464;
+}
+@media screen and (min-width: 768px) {
+  .answers-container button {
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+/***********************************************/
+/*SCORE*/
+
+.score {
+  width: 4rem;
+  height: 4rem;
+  background-color: #f1eaea;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.scoreTitle {
+  font-size: 10px;
+  font-weight: bold;
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.scoreNumber {
+  font-weight: bold;
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  margin: 0;
+}
+
+.basconsole {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  position: absolute;
+  right: 10vw;
+  bottom: 9vh;
+  width: 80%;
+}
+
+
+
+/*******************************************/
+
+/*FOOTER*/
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  align-items: center;
+  align-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 35px;
+  background: linear-gradient(0deg, #c4c4c4e9, rgba(255, 255, 255, 0.07));
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.footer .Team {
+  margin-left: 10px;
+  font-family: "Roboto", cursive;
+}
+
+.socialNet img {
+  height: 25px;
+  width: 25px;
+  margin: 0 10px;
+  opacity: 40%;
+}
+
+/***********************************/
+/*RESPONSIVE*/
+
+@media screen and (min-width: 480px) {
+  .header {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 10vh;
+    border-bottom: solid #c4c4c4 0.2px;
+  }
+
+
+  .console {
+    margin-top: 5rem;
+    margin-left: 15%;
+    margin-right: 15%;
+    height: 60vh;
+    width: 75%;
+    background-size: 100%;
+  }
+
+
+
+  .smiley {
+    display: none;
+    z-index: 1;
+    position: absolute;
+    background-color: rgba(108, 105, 105, 0.672);
+    height: 86%;
+    width: 100%;
+
+  }
+
+  .game-container {
+    padding-right: 12%;
+    height: 90%;
+    padding-top: 0;
+    justify-content: space-evenly;
+  }
+
+  .logo-desktop {
+    visibility: visible;
+    display: block;
+  }
+
+  .logo-mobile {
+    visibility: hidden;
+  }
+
+  .interro {
+    transition: transform .1s;
+  }
+
+  .interro:hover {
+    transform: scale(1.25);
+  }
+
+  .answers-container {
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 12vh;
+  }
+
+  .answers-container button {
+    width: 49%;
+    height: 50%;
+    max-height: 100%;
+    font-size: 1rem;
+    margin: 0.4rem 0;
+    padding: 0.5rem 0.5rem;
+
+  }
+
+  .test {
+    left: 10vw;
+  }
+
+  .score {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  .scoreTitle {
+    font-size: large;
+    font-weight: bold;
+    font-family: "Press Start 2P", cursive;
+    text-align: center;
+  }
+
+  .scoreNumber {
+    font-weight: bold;
+    font-family: "Press Start 2P", cursive;
+    text-align: center;
+  }
+
+  .basconsole {
+    flex-direction: column;
+    width: unset;
+    height: 41%;
+    top: 28%;
+    right: 13vw;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 45px;
+    width: 90%;
+  }
+
+  .footer .Team {
+    margin-left: 20px;
+  }
+
+  .socialNet img {
+    height: 25px;
+    width: 25px;
+    margin: 0 10px;
+    opacity: 40%;
+    transition: transform .1s;
+  }
+
+  .socialNet img:hover {
+    transform: scale(1.25);
+  }
+
+  /***********************/
+  /*SCREEN*/
+
+  .screen h2 {
+    font-size: medium;
+    padding: 0;
+  }
+
+  .screen .timer-bar {
+    height: 5px;
+    width: 85%;
+    margin-left: 1rem;
+    margin-right: 1.5rem;
+
+  }
+
+  .timer-bar .progress {
+    height: 5px;
+  }
+
+  @keyframes progres {
+    100% {
+      width: 0%;
+    }
+
+    75% {
+      width: 21%;
+    }
+
+    50% {
+      width: 42%;
+    }
+
+    25% {
+      width: 63%;
+    }
+
+    0% {
+      width: 83%;
+    }
+  }
+
+  .screen {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+    height: 12rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .screen .screen-score {
+    font-size: medium;
+    position: relative;
+    top: 0;
+    right: 2%;
+  }
+
+  .screen .container-timer {
+    display: flex;
+    justify-content: space-around;
+    margin: 1%;
+  }
+
+
+
+  .button-next {
+    height: 50px;
+    transition: transform .1s;
+  }
+
+  .button-next:hover {
+    transform: scale(1.25);
+  }
+
+  .about {
+    z-index: 1;
+    display: none;
+    margin-left: 40vw;
+    margin-top: 15vh;
+    position: absolute;
+    border-radius: 25px;
+    box-shadow: inset -20px -20px 20px rgba(68, 65, 65, 0.659),
+    8px 8px 20px rgba(68, 65, 65, 0.659);
+
+  }
+}

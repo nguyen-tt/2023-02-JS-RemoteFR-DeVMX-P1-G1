@@ -524,7 +524,7 @@ body {
     }
 
     0% {
-      width: 83%;
+      width: 85%;
     }
   }
 
@@ -533,8 +533,6 @@ body {
     flex-direction: column;
     padding-bottom: 0;
     height: 12rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 
   .screen .screen-score {
